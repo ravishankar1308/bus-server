@@ -3,12 +3,12 @@ const Schema =mongoose.Schema;
 const uniqueValidator = require('mongoose-unique-validator');
 
 const schema = new Schema({
-    from:{type:Schema.Types.ObjectId, ref:'Location',required: true},
-    to:{type:Schema.Types.ObjectId, ref:'Location',required: true},
-    driver:{type:Schema.Types.ObjectId, ref:'User',required: true},
-    bus:{type:Schema.Types.ObjectId, ref:'Bus',required: true},
-    noOfSeat:{type:Number,required: true},
-    date:{type:Date,required:true},
+    from:{type:Schema.Types.ObjectId, ref:'Location'},
+    to:{type:Schema.Types.ObjectId, ref:'Location'},
+    driver:{type:Schema.Types.ObjectId, ref:'User'},
+    bus:{type:Schema.Types.ObjectId, ref:'Bus'},
+    noOfSeat:{type:String},
+    date:{type:String},
     status:{type:String}
 },{timestamps: true})
     .method("toJSON", function () {

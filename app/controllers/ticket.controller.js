@@ -7,16 +7,16 @@ const Ticket = require('../models/ticket.model');
 
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.trip) {
-        await res.status(400).send("Content can not be empty!" );
-        return;
-    }
+    // if (!req.body.trip || !req.body.tripUser) {
+    //     await res.status(400).send("Content can not be empty!" );
+    //     return;
+    // }
+    console.log(req.body);
 
     const ticket =await new Ticket({
         trip: req.body.trip,
-        seatNo: req.body.seatNo,
-        ticketStatus:'Created'
-
+        tripUser: req.body.tripUser,
+        ticketStatus:req.body.status
     });
 
     await ticket
@@ -37,6 +37,9 @@ exports.create = async (req, res) => {
 exports.findAll = (req, res) => {
 
     Ticket.find()
+        .populate('trip')
+        .populate('tripUser')
+        .populate('from')
         .then(data => {
             res.send(data);
         })

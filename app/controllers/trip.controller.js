@@ -6,24 +6,24 @@ const User = require('../models/user.model');
 
 exports.create = async (req, res) => {
     // Validate request
-    if (!req.body.from ||!req.body.to ||!req.body.driver ||!req.body.busName) {
+    if (!req.body.from ||!req.body.to ||!req.body.driver ||!req.body.bus) {
         await res.status(400).send("Content can not be empty!" );
         return;
     }
     const fromId = await Location.findOne({locationName: req.body.from});
     const toId = await Location.findOne({locationName: req.body.to});
     const driverId = await User.findOne({name: req.body.driver});
-    const busId = await Bus.findOne({busName: req.body.busName});
+    const busId = await Bus.findOne({busName: req.body.bus});
+
 
     const trip =await new Trip({
-        from: fromId.id,
-        to: toId.id,
-        driver: driverId.id,
-        bus: busId.id,
+        from: fromId._id,
+        to: toId._id,
+        driver: driverId._id,
+        bus: busId._id,
         noOfSeat: req.body.noOfSeat,
         date: req.body.date,
         status:'Booking Progress'
-
     });
 
     await trip
@@ -44,6 +44,7 @@ exports.create = async (req, res) => {
 exports.findAll = (req, res) => {
 
     Trip.find()
+        .populate('from').populate('to').populate('driver').populate('bus')
         .then(data => {
             res.send(data);
         })

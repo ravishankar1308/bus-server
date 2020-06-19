@@ -4,10 +4,10 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const schema = new Schema({
     trip:{type:Schema.Types.ObjectId, ref:'Trip',required: true},
-    seatNo:{type:Array,required: true,unique:true},
+    tripUser:{type:Schema.Types.ObjectId, ref:'User',required: true},
     ticketStatus:{type:String}
 },{timestamps: true})
-    .plugin(uniqueValidator)
+    // .plugin(uniqueValidator)
     .method("toJSON", function () {
         const {__v, _id, ...object} = this.toObject();
         object.id = _id;
