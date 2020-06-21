@@ -37,9 +37,41 @@ exports.create = async (req, res) => {
 exports.findAll = (req, res) => {
 
     Ticket.find()
-        .populate('trip')
+        .populate({
+            path: 'trip',
+            populate: {
+                path: 'from'
+            }
+        })
+        .populate({
+            path: 'trip',
+            populate: {
+                path: 'to'
+            }
+        })
+        .populate({
+            path: 'trip',
+            populate: {
+                path: 'bus'
+            }
+        })
         .populate('tripUser')
-        .populate('from')
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+};
+
+exports.findTrip = (req, res) => {
+
+    const id = req.params.id;
+    Ticket.find({trip:id})
+        .populate('tripUser')
         .then(data => {
             res.send(data);
         })
@@ -74,7 +106,7 @@ exports.update = (req, res) => {
         });
     }
 
-    const id = req.params.id;
+
 
     Ticket.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {

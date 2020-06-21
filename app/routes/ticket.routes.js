@@ -23,6 +23,11 @@ module.exports = function(app) {
         controller.findOne
     );
 
+    app.get(
+        "/api/ticketByTrip/:id",
+        controller.findTrip
+    );
+
     app.put(
         "/api/ticket/:id",
         controller.update

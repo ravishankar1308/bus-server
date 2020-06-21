@@ -5,8 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/ticket.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ticket.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/trip.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/trip.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ticket.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ticket.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/trip.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/trip.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/ticket.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/ticket.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="113" y="167" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591715996624">

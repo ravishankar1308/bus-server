@@ -9,7 +9,9 @@ const schema = new Schema({
     bus:{type:Schema.Types.ObjectId, ref:'Bus'},
     noOfSeat:{type:String},
     date:{type:String},
-    status:{type:String}
+    status:{type:String},
+    longitude: {type: String},
+    latitude: {type: String},
 },{timestamps: true})
     .method("toJSON", function () {
         const {__v, _id, ...object} = this.toObject();
